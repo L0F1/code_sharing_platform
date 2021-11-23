@@ -17,7 +17,7 @@
         <span id="load_date" th:text="${code.date}"></span>
         <br>
         <span id="views_restriction" th:if="${code.views > 0}">
-            <span th:text="${code.views}"></span>
+            <span th:text="${code.views-1}"></span>
             more views allowed
         </span>
         <br>

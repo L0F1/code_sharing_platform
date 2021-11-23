@@ -33,6 +33,7 @@ public class CodeServiceImpl implements CodeService {
             code.setViews(code.getViews()-1);
             if (code.getViews() == 0) {
                 codeRepository.deleteById(code.getId());
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND);
             }
             else {
                 codeRepository.save(code);
@@ -59,16 +60,19 @@ public class CodeServiceImpl implements CodeService {
         code.setDate(LocalDateTime.now().format(formatter));
         code.setUuid(UUID.randomUUID().toString());
 
-        if (code.getTime() == null) {
+        if (code.getTime() == null || code.getTime() < 0) {
             code.setTime(0L);
+        }
+        if (code.getViews() == null || code.getViews() < 0) {
+            code.setViews(0L);
         }
         if (code.getTime() > 0) {
             code.setDeadline(LocalDateTime.parse(code.getDate(), formatter)
                     .plusSeconds(code.getTime()).toString());
         }
-
-        if (code.getViews() == null)
-            code.setViews(0L);
+        if (code.getViews() > 0) {
+            code.setViews(code.getViews()+1);
+        }
 
         return codeRepository.save(code).getUuid();
     }

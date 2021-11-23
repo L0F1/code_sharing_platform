@@ -22,7 +22,10 @@ public class ApiController {
 
     @GetMapping("{uuid}")
     public Code getCode(@PathVariable String uuid) {
-        return codeService.getSnippet(uuid);
+        Code code = codeService.getSnippet(uuid);
+        if (code.getViews() > 0)
+            code.setViews(code.getViews()-1);
+        return code;
     }
 
     @PostMapping("/new")
