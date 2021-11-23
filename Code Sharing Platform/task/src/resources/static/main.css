@@ -1,0 +1,20 @@
+span#load_date, a {
+    color: #1b952a;
+}
+
+/*body {
+    background-color: #c3ffb6;
+}*/
+
+pre, textarea, button {
+    opacity: 1;
+    margin: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    width: 500px;
+    height: 150px;
+}

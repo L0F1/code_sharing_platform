@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{/main.css}" rel="stylesheet" />
+    <title th:text="${title}"></title>
+    <link rel="stylesheet"
+          href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/default.min.css">
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+    <a href="/code/new">Post new code snippet</a>
+    <br><br>
+    <th:block th:each="code : ${codes}">
+
+        <span id="load_date" th:text="${code.date}"></span>
+        <br>
+        <span id="views_restriction" th:if="${code.views > 0}">
+            <span th:text="${code.views}"></span>
+            more views allowed
+        </span>
+        <br>
+        <span id="time_restriction" th:if="${code.time > 0}" >
+            The code will be available for
+            <span th:text="${code.time}"></span>
+            seconds
+        </span>
+
+        <pre id="code_snippet">
+            <code th:text="${code.code}"></code>
+        </pre>
+
+    </th:block>
+</body>
+</html>
