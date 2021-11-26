@@ -7,12 +7,16 @@
     <script type="text/javascript" th:src="@{/sendJsonOnClick.js}"></script>
 </head>
 <body>
+    <header>
+        <a href="/code/latest">Latest code snippet</a>
+    </header>
+    <main>
     <textarea id="code_snippet"></textarea>
     <br>
-    Time restriction: <input id="time_restriction" type="text" value="0"/>
-    <br>
-    Views restriction: <input id="views_restriction" type="text" value="0"/>
+    <span class="res">Time restriction:</span> <input id="time_restriction" type="text" value="0"/>
+    <span class="res">Views restriction:</span> <input id="views_restriction" type="text" value="0"/>
     <br>
     <button id="send_snippet" type="submit" onclick="send()">Submit</button>
+    </main>
 </body>
 </html>

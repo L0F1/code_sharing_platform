@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
 <head>
     <meta charset="UTF-8">
-    <link th:href="@{/main.css}" rel="stylesheet" />
+    <link th:href="@{/main.css}" rel="stylesheet"/>
     <title th:text="${title}"></title>
     <link rel="stylesheet"
           href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.2.1/build/styles/default.min.css">
@@ -10,27 +11,33 @@
     <script>hljs.initHighlightingOnLoad();</script>
 </head>
 <body>
+<header>
     <a href="/code/new">Post new code snippet</a>
-    <br><br>
-    <th:block th:each="code : ${codes}">
+</header>
+<br>
+<main>
+<th:block th:each="code : ${codes}">
 
-        <span id="load_date" th:text="${code.date}"></span>
-        <br>
-        <span id="views_restriction" th:if="${code.views > 0}">
+    <span id="load_date" th:text="${code.date}"></span>
+    <br>
+    <span id="views_restriction" th:if="${code.views > 0}">
             <span th:text="${code.views-1}"></span>
             more views allowed
         </span>
-        <br>
-        <span id="time_restriction" th:if="${code.time > 0}" >
+    <span id="time_restriction" th:if="${code.time > 0}">
             The code will be available for
             <span th:text="${code.time}"></span>
             seconds
         </span>
 
-        <pre id="code_snippet">
-            <code th:text="${code.code}"></code>
+    <pre id="code_snippet">
+            <code id="code" th:text="${code.code}"></code>
         </pre>
 
-    </th:block>
+</th:block>
+</main>
+<footer>
+    <span id="footer">https://github.com/L0F1</span>
+</footer>
 </body>
 </html>

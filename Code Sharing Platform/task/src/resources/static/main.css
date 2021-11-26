@@ -1,20 +1,72 @@
-span#load_date, a {
+#load_date, a {
+    color: #4CAF50;
+}
+
+#load_date {
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+a:hover {
+    color: #ecec34;
+}
+
+main {
+    margin-left: 16%;
+}
+
+header {
+    font-size: x-large;
+    text-align: center;
+    margin: 20px;
+}
+
+body {
+    background-color: #333333;
+}
+
+#code, .res {
     color: #1b952a;
 }
 
-/*body {
-    background-color: #c3ffb6;
-}*/
+.res {
+    margin-left: 50px;
+}
+
+#code {
+    background-color: whitesmoke;
+}
 
 pre, textarea, button {
     opacity: 1;
     margin: 10px;
     border: 2px solid rgba(0, 0, 0, 0.5);
     border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: whitesmoke;
+}
+
+button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+input[type=text] {
+  padding: 12px 20px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+pre {
+    width: 800px;
 }
 
 textarea {
-    width: 500px;
+    width: 800px;
     height: 150px;
 }
